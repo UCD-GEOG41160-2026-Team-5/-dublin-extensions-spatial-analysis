@@ -55,7 +55,7 @@ con.sql("""
 """)
 
 print("Dublin City electoral divisions:")
-print(con.sql("SELECT COUNT(*) FROM eds"))
+print(con.sql("SELECT COUNT(*) FROM dublin_eds"))
 
 ###Print the orignal row counts for planning applications
 print("Total national planning applications:")
@@ -183,8 +183,7 @@ print(con.sql("""
 """))
 
 ###Counting applications that fell outside of EDs
-print
-(con.sql("""
+print(con.sql("""
     SELECT COUNT(*) AS applications_outside_eds
     FROM extensions_itm AS p
     WHERE NOT EXISTS (
