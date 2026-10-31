@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
-
-
-
-# In[9]:
-
-
 #########################
 #########################  woooooohoooooooooo
 ######QUESTION ONE#######
@@ -115,10 +103,6 @@ print(con.sql("SHOW TABLES"))
 #Election districts in Dublin: 162
 #Applications for extensions to Dublin City Council between 2019-2025: 9,914
 
-
-# In[10]:
-
-
 #########################################
 ###STEP TWO: Reproject CRS and Explain###
 #########################################
@@ -171,10 +155,6 @@ con.sql("""
 #Because ITM is Ireland specific, and so is this project,  it is important to use that projection system
 #Additionally, we can now do further analysis now that the feature layers are in same projection
 
-
-# In[11]:
-
-
 #########################
 ###STEP THREE: Joining###
 #########################
@@ -217,10 +197,6 @@ print
 ###EXPLANATION###
 #There are 14 applications that fall outside of EDs. This is because they fall along the boundary lines and are
 #not read as "within" the geometry
-
-
-# In[23]:
-
 
 ##########################################
 ###STEP FOUR: Calculate Density and MAP###
@@ -270,10 +246,3 @@ plt.show()
 ###Saving Geopackage
 eds_map.to_file(OUTPUT / "dublin_ed_planning.gpkg")
 print(gpd.read_file(OUTPUT / "dublin_ed_planning.gpkg").head())
-
-
-# In[ ]:
-
-
-
-
