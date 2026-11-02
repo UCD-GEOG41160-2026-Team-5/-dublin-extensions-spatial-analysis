@@ -254,5 +254,5 @@ plt.savefig(OUTPUT / "ExtensionDensity_DublinED.png", dpi=180, bbox_inches="tigh
 plt.show()
 
 ###Saving Geopackage
-eds_map.to_file(OUTPUT / "dublin_ed_planning.gpkg")
-print(gpd.read_file(OUTPUT / "dublin_ed_planning.gpkg").head())
+eds_map.to_file(OUTPUT / "DublinED_ExtensionDensity.gpkg")
+print(gpd.read_file(OUTPUT / "DublinED_ExtensionDensity.gpkg").head())
