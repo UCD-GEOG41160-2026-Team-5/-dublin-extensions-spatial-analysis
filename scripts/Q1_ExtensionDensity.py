@@ -1,5 +1,5 @@
-GEOG41160 Assignment 2, Question N: Extension density by ED
-Team: 5
+"""GEOG41160 Assignment 2, Question 1: Extension density by ED"""
+"""Team: 5"""
 
 #1.
 #Election districts in Dublin: 162
