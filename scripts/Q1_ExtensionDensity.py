@@ -1,8 +1,19 @@
-#########################
-#########################  woooooohoooooooooo
-######QUESTION ONE#######
-#########################
-#########################
+GEOG41160 Assignment 2, Question N: Extension density by ED
+Team: 5
+
+#1.
+#Election districts in Dublin: 162
+#Applications for extensions to Dublin City Council between 2019-2025: 9,914
+
+#2.
+#Web mercator as a projected coordinate system that distorts land/water farther from the equator.
+#We are working with point data which was in ESPG 3857, different from our EDs in ITM
+#Because ITM is Ireland specific, and so is this project,  it is important to use that projection system
+#Additionally, we can now do further analysis now that the feature layers are in same projection
+
+#3.
+#There are 14 applications that fall outside of EDs. This is because they fall along the boundary lines and are
+#not read as "within" the geometry
 
 #######################################
 ###STEP ZERO: getting paths and data###
@@ -243,5 +254,5 @@ plt.savefig(OUTPUT / "ExtensionDensity_DublinED.png", dpi=180, bbox_inches="tigh
 plt.show()
 
 ###Saving Geopackage
-eds_map.to_file(OUTPUT / "dublin_ed_planning.gpkg")
-print(gpd.read_file(OUTPUT / "dublin_ed_planning.gpkg").head())
+eds_map.to_file(OUTPUT / "DublinED_ExtensionDensity.gpkg")
+print(gpd.read_file(OUTPUT / "DublinED_ExtensionDensity.gpkg").head())
