@@ -212,7 +212,6 @@ eds.plot(
     ax=ax
 )
 
-# 确保在地图图例中始终保留全部三种类别说明，清晰展示作业要求的 Diverging Color Scheme
 legend_gi = [
     Patch(facecolor=color, edgecolor="grey", label=label)
     for label, color in color_map_gi.items()
