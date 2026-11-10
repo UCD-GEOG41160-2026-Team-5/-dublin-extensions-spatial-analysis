@@ -94,13 +94,6 @@ Sprint 0 0- 27/10/26 at 15:00.
 
 
 
-
-Sprint 0 0- 27/10/26 at 15:00.
-  1. Github created
-  2. Folders created
-  3. Data downloaded
-
-
 * **SPRINT 1: Extension density by ED.**
 
 
@@ -119,6 +112,3 @@ The Git commit history in this repository documnents the iterative development o
 
 
 
-  
-  2. Folders created
-  3. Data downloaded
