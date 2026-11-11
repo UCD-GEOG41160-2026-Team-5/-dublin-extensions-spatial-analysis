@@ -215,7 +215,7 @@ print(con.sql("""
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
-###Retrieve EDs and geometries from DuckDB
+###Get EDs and geometries from DuckDB
 df = con.sql("""
     SELECT
         ED_ENGLISH,
@@ -234,23 +234,33 @@ eds_map = gpd.GeoDataFrame(
 eds_map["per_km2"] = (eds_map["applications"] / (eds_map.geometry.area / 1e6))
 
 ###Plot the choropleth map
-ax = eds_map.plot(
+fig, ax = plt.subplots(figsize=(7, 6))
+
+eds_map.plot(
     column="per_km2",
     scheme="Quantiles",
     k=5,
     cmap="Wistia",
     edgecolor="Black",
     linewidth=0.2,
-    figsize=(7, 6),
     legend=True,
     legend_kwds={
         "title": "Extensions per km²",
         "fmt": "{:.0f}",
-        "loc": "lower right"})
+        "loc": "lower right"
+    },
+    ax=ax
+)
+
 ax.set_title("Density of Applications for Extensions, Dublin City, 2019–2025")
 ax.set_axis_off()
-plt.savefig(OUTPUT / "ExtensionDensity_DublinED.png", dpi=180, bbox_inches="tight")
+
+###Save the map
+png_path = OUTPUT / "ExtensionDensity_DublinED.png"
+fig.savefig(png_path, dpi=180, bbox_inches="tight")
+
 plt.show()
+plt.close(fig)
 
 ###Saving Geopackage
 eds_map.to_file(OUTPUT / "DublinED_ExtensionDensity.gpkg")
