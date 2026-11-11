@@ -249,7 +249,6 @@ ax = eds_map.plot(
         "loc": "lower right"})
 ax.set_title("Density of Applications for Extensions, Dublin City, 2019–2025")
 ax.set_axis_off()
-plt.show()
 plt.savefig(OUTPUT / "ExtensionDensity_DublinED.png", dpi=180, bbox_inches="tight")
 plt.show()
 
