@@ -47,6 +47,7 @@ Q3.6 (LISA vs. Gi* Methodological & Empirical Comparison):
    - Comparison Basis: The comparison uses raw LISA significance (p <= 0.05) and raw Gi* Z-score classification (|Z| > 1.96), before FDR correction.
 """
 
+
 from pathlib import Path
 import pandas as pd
 import numpy as np
@@ -189,7 +190,7 @@ plt.show()
 
 
 #####################################################
-##### QUESTION 3.4: Compute Getis-Ord Gi* & FDR #####
+##### QUESTION 3.4: Compute Getis-Ord Gi* & FDR #####       (any other CSV files or figures the scripts produce)
 #####################################################
 
 # Gi* Spatial Weights Rationale (Binary & Star=1.0)
@@ -309,3 +310,11 @@ print("3. Structural Mechanism & Spatial Outliers:")
 print("   - LISA measures spatial lag relative to the global mean using row-standardized weights.")
 print("   - Gi* computes unstandardized total neighborhood sums including the focal ED (star=1.0).")
 print("   - In this dataset, 1 High-Low ED is classified as a Gi* coldspot, while the other is not significant. This is because Gi* includes the focal ED and its neighbours in the local sum, so low values among surrounding EDs can pull down the overall neighbourhood total.")
+
+# Export the Q3 analysis summary table to the outputs
+ct.to_csv(OUTPUTS / "lisa_vs_gistar_crosstab.csv")
+results_df = eds[['ED_ENGLISH', 'applications', 'per_km2', 'lisa_cluster', 'gi_z', 'gi_star']]
+results_df.to_csv(OUTPUTS / "Q3_LISA_GiStar_Results.csv", index=False)
+print("\nAll Q3 CSV files successfully exported to outputs/:")
+print(f" - {OUTPUTS / 'lisa_vs_gistar_crosstab.csv'}")
+print(f" - {OUTPUTS / 'Q3_LISA_GiStar_Results.csv'}")
