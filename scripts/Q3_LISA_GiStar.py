@@ -312,9 +312,9 @@ print("   - Gi* computes unstandardized total neighborhood sums including the fo
 print("   - In this dataset, 1 High-Low ED is classified as a Gi* coldspot, while the other is not significant. This is because Gi* includes the focal ED and its neighbours in the local sum, so low values among surrounding EDs can pull down the overall neighbourhood total.")
 
 # Export the Q3 analysis summary table to the outputs
-ct.to_csv(OUTPUTS / "lisa_vs_gistar_crosstab.csv")
+ct.to_csv(OUTPUTS / "LISA_vs_GiStar_Crosstab.csv")
 results_df = eds[['ED_ENGLISH', 'applications', 'per_km2', 'lisa_cluster', 'gi_z', 'gi_star']]
 results_df.to_csv(OUTPUTS / "Q3_LISA_GiStar_Results.csv", index=False)
 print("\nAll Q3 CSV files successfully exported to outputs/:")
-print(f" - {OUTPUTS / 'lisa_vs_gistar_crosstab.csv'}")
+print(f" - {OUTPUTS / 'LISA_vs_GiStar_Crosstab.csv'}")
 print(f" - {OUTPUTS / 'Q3_LISA_GiStar_Results.csv'}")
