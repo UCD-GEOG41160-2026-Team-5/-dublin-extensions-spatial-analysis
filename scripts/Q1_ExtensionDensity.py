@@ -18,9 +18,14 @@
 #######################################
 ###STEP ZERO: getting paths and data###
 #######################################
+
+#This step sets up relative file paths and calls the data. It also connects the output folder where the geopackages, Duckdb, and any maps produced will be saved.
+
 from pathlib import Path
 import duckdb
 import numpy as np
+import geopandas as gpd
+import matplotlib.pyplot as plt
 
 ###Setup
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,6 +42,9 @@ print("Working folder:", ROOT)
 #########################################
 ###STEP ONE: DUCKDB and getting counts###
 #########################################
+
+#This step connects a duckdatabase and filters and cleans the data. Using SQL, we filter all eletion districts in Ireland to just those in Dublin/
+#We also filter planning applications for 3 criteria: 1. Applications Dublin City Council, between 2019-2025, and including the word "extension"
 
 ###Connect to the DuckDB database
 con = duckdb.connect(DATABASE)
@@ -118,9 +126,10 @@ print(con.sql("SHOW TABLES"))
 ###STEP TWO: Reproject CRS and Explain###
 #########################################
 
-###Read one feature from each source to check the CRS
-import geopandas as gpd
+#This step reprojects the point data from the housing applications into the ITM projection used by the election districts. ITM is the best projection system for Ireland
+#so all data should be projected in ITM so further analysis is correct. 
 
+###Read one feature from each source to check the CRS
 dublin_eds_gdf = gpd.read_file(EDS, rows=1)
 planning_gdf = gpd.read_file(PLANNING, rows=1)   #SQL was not doing this so briefly using python
 
@@ -170,6 +179,11 @@ con.sql("""
 ###STEP THREE: Joining###
 #########################
 
+#This step joins the extensions point data to the EDs geography, checks for correct oporation, and counts the number of applications that fall outside of the EDS.
+#This way we can calculate density per election district in the next step
+#Because St_within excludes values (applications) that lay exactly on election district boundaries there may be excluded values. 
+#This does not necessarily indicate errors in the dataset. 
+
 ###Joining 
 con.sql("""
     CREATE OR REPLACE TABLE ed_counts AS
@@ -212,8 +226,8 @@ print(con.sql("""
 ###STEP FOUR: Calculate Density and MAP###
 ##########################################
 
-import geopandas as gpd
-import matplotlib.pyplot as plt
+#This step combines the density calculation and map creation. 
+#A map of the density of planning applications is created and exported to outputs, as well as a geopackage of the density stats that will be used for further analysis.
 
 ###Get EDs and geometries from DuckDB
 df = con.sql("""
@@ -258,7 +272,6 @@ ax.set_axis_off()
 ###Save the map
 png_path = OUTPUT / "ExtensionDensity_DublinED.png"
 fig.savefig(png_path, dpi=180, bbox_inches="tight")
-
 plt.show()
 plt.close(fig)
 
