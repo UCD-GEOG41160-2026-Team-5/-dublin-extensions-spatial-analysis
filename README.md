@@ -96,9 +96,9 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
 * **ITEM 3: Global Spatial Autocorrelation (Q2_GlobalMoran.py)**
   * **Meeting Date:** Monday, 02/11/2026 at 1:00 PM
   * **What Now (Completed & Reviewed):**
-    1. 
-    2. 
-    3. 
+    1. Convened team session led by the sprint coordinator to review the Question 2 workflow (Q2_GlobalMoran.py).
+    2. Evaluated global Moran's I metrics and log-transformed distributions, confirming significant spatial autocorrelation across Dublin EDs.
+    3. Finalized and verified Question 2 diagnostic plots and output (including distribution diagnostic plots and global Moran's I statistical summaries), committing all files to the repository.
 
   * **What Next (Sprint 3 :Local Clusters, Hotspots, and Comparison):**
     1. Transitioned to Sprint 3 (Q3_LISA_GiStar.py), with work beginning on Wednesday 4/11/2026.
@@ -114,6 +114,8 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
 
   * **What Next (Final Project Review):**
     1. Agreed to reconvene on Wednesday, 11/11/2026 at 1:00 PM to conduct a comprehensive review of all completed scripts, outputs, and documentation across the entire repository.
+    2. Reviewed the preliminary README.md structure against assignment rubric requirements.
+    3. Cross-checked output file naming conventions and deliverable formats across all three modules to ensure repository-wide consistency.
     
 * **ITEM 5: Full Project Review & Repository Verification**
   * **Meeting Date:** Wednesday, 11/11/2026 at 1:00 PM
