@@ -67,42 +67,80 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
 **SPRINT LOG**
 * **ITEM 1: FIRST MEETING  (Setup & Planning)**
   * **DATE OF MEETING:** Friday, 23/10/2026 at 3:00 PM
-  * **AGENDA:**
+  * **What Now (Completed & Reviewed):**
     1. Convened team session to thoroughly review the assignment brief.
     2. Agreed on the time duration and milestones for each question.
     3. Assigned fixed lead roles for each technical task (Q1_ExtensionDensity.py, Q2_GlobalMoran.py, Q3_LISA_GiStar.py).
-    * Established the rotating Coordinator role shared equally across all sprints.
+    4. Established the rotating Coordinator role shared equally across all sprints.
 
-  * **NEXT TASKS (Repository Setup & Initialization):**
-    1. First team member created the private GitHub repository and added all teammates as Owners
-    2. Team participated in creating core directory structure (data/, scripts/, outputs/)
-    3. First team member downloaded raw spatial datasets (planning_applications_national.gpkg, eds_national.gpkg)and initiated task execution.
+  * **What Next: Repository Setup & Task execution of  Sprint 1:**
+    1. First team member will create the private GitHub repository and add all teammates as Owners
+    2. Team will participate in creating core directory structure (data/, scripts/, outputs/)
+    3. First team member will  download raw spatial datasets (planning_applications_national.gpkg, eds_national.gpkg) and start with sprint 1.
     4. Agreed to meet on Thursday at 1:00 PM to review finished tasks.
 
-* **ITEM 2:**
+* **ITEM 2:: Extension density by ED.**
+  **Meeting Date:** Thursday, 29/10/2026 at 1:00 PM
+  * **What Now (Review of Script:1):**
+    1. Convened team session led by the sprint coordinator to review the completed Question 1 workflow (Q1_ExtensionDensity.py).
+    2.  The creation of the github, folders and the download of data was done on 27/10/2026.
+    3. Executed a test run of the script, identified relative file path issues, and resolved them collaboratively so the script runs cleanly from a fresh copy.
+    4. Finalized and verified the Question 1 outputs (extensions.duckdb, DublinED_ExtensionDensity.gpkg, and ExtensionDensity_DublinED.png), which were committed to the repository.
 
-Sprint 0 0- 27/10/26 at 15:00.
-  1. Github created
-  2. Folders created
-  3. Data downloaded
+  *  **What Next (Sprint 2 Plan:Global Spatial Autocorrelation):**
+    1. Transitioned to Sprint 2 (Q2_GlobalMoran.py), with work beginning on Friday.
+    2. Agreed to reconvene on Monday 2/11/2026 to review the completed Script 2 outputs and spatial autocorrelation results.
+    3. Rotate the coordinator for sprint 2
 
-   **ITEM 1: FIRST MEETING  (Setup & Planning)**
-    **ITEM 1: FIRST MEETING  (Setup & Planning)**
-     **ITEM 1: FIRST MEETING  (Setup & Planning)**
-      **ITEM 1: FIRST MEETING  (Setup & Planning)**
-       **ITEM 1: FIRST MEETING  (Setup & Planning)**
+* **ITEM 3: Global Spatial Autocorrelation (Q2_GlobalMoran.py)**
+  * **Meeting Date:** Monday, 02/11/2026 at 1:00 PM
+  * **What Now (Completed & Reviewed):**
+    1. 
+    2. 
+    3. 
 
+  * **What Next (Sprint 3 :Local Clusters, Hotspots, and Comparison):**
+    1. Transitioned to Sprint 3 (Q3_LISA_GiStar.py), with work beginning on Wednesday 4/11/2026.
+    2. Agreed to reconvene on Monday, 9/11/2026 at 1:00pm to review the completed Script 3 outputs.
+    3. Rotate the Coordinator role for Sprint 3 
 
+* **ITEM 4: Local Clusters, Hotspots, and Comparison (Q3_LISA_GiStar.py)**
+  * **Meeting Date:** Monday, 9/11/2026 at 1:00 PM
+  * **What Now (Completed & Reviewed):**
+    1. 
+    2. 
+    3. 
+
+  * **What Next (Final Project Review):**
+    1. Agreed to reconvene on Wednesday, 11/11/2026 at 1:00 PM to conduct a comprehensive review of all completed scripts, outputs, and documentation across the entire repository.
+    
+* **ITEM 5: Full Project Review & Repository Verification**
+  * **Meeting Date:** Wednesday, 11/11/2026 at 1:00 PM
+  * **What Now (Completed & Reviewed):**
+    1. Convened as a team to conduct a comprehensive review of all completed scripts (Q1_ExtensionDensity.py, Q2_GlobalMoran.py, and Q3_LISA_GiStar.py) and outputs across the repository.
+    2. Identified minor issues in the scripts during end to end testing and assigned follow up fixes to ensure clean execution.
+
+  * **What Next (Final Fixes & Submission):**
+    1. Resolve the identified script issues and verify that the entire workflow runs cleanly from start to finish.
+    2. Reconvene on Friday, 13/11/2026 to complete the final commit, perform a last quality check on README.md, and generate TeamRepositoryLink.txt for submission.
+
+* **ITEM 6: Final Fixes, Verification & Submission**
+    * **Meeting Date:** Friday, 13/11/2026
+    * **What Now (Completed & Reviewed):**
+      1. Convened for the final team session to verify that all script issues identified on Wednesday were resolved..
+      2. Finalized the README.md documentation, verified the repository folder structure (data/, scripts/, outputs/) and commit history across all team members, and pushed the final commits to Github.
+
+  * **What Next (Brightspace Submission):**
+    1. Generate and verify TeamRepositoryLink.txt containing the private repository URL and submit it on Brightspace.
 
 * **SPRINT 1: Extension density by ED.**
-
+In Sprint 1, we set up a DuckDB spatial database (outputs/extensions.duckdb) to filter and process national planning data and Dublin Electoral Divisions, reprojecting layers into Irish Transverse Mercator (EPSG:2157). We then performed spatial joins via SQL to count applications per ED, calculated extension density (applications per_km2), exported the spatial results to DublinED_ExtensionDensity.gpkg, and generated the map visualization ExtensionDensity_DublinED.png
 
 * **SPRINT 2: Global spatial autocorrelation.**
-
-
+In Sprint 2, we evaluated global spatial autocorrelation for extension density across Dublin Electoral Divisions by testing distribution skewness, applying a log-transformation, and constructing spatial weights matrices. We then computed Global Moran's I with permutation testing for both raw and transformed variables, reporting I and p-values to determine whether the spatial pattern is clustered, dispersed, or random.
 
 * **SPRINT 3 : Local clusters and hotspots.**
-
+In  Sprint 3, we  evaluated local spatial clustering of extension density across Dublin Electoral Divisions using Local Moran's I (LISA) and Getis-Ord Gi, applying false discovery rate (esda.fdr) corrections to control for multiple testing. We generated and exported map visualizations (LISA_ExtensionDensity_DublinED.png, GiStar_ExtensionDensity_DublinED.png) along with a cross-tabulation table (lisa_vs_gistar_crosstab.csv) to compare where and why the two hotspot methods agree or differ
 
 * **SUBMISSION**
 After agreeing on the final commit, the team prepared the required deliverables. the shared team files (TeamRepositoryLink.txt, GEOG41160_Assignment2_Team5.zip), were finalized for submission alongside each member's individual PDF reflection submitted to Brightspace.
