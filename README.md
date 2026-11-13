@@ -83,7 +83,7 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
   **Meeting Date:** Thursday, 29/10/2026 at 1:00 PM
   * **What Now (Review of Script:1):**
     1. Convened team session led by the sprint coordinator to review the completed Question 1 workflow (Q1_ExtensionDensity.py).
-    2.  The creation of the github, folders and the download of data was done on 27/10/2026.
+    2. The creation of the github, folders and the download of data was done on 27/10/2026.
     3. Executed a test run of the script, identified relative file path issues
     4. Finalized and verified the Question 1 outputs (extensions.duckdb, DublinED_ExtensionDensity.gpkg, and ExtensionDensity_DublinED.png), which were committed to the repository.
 
@@ -108,10 +108,8 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
 * **ITEM 4: Local Clusters, Hotspots, and Comparison (Q3_LISA_GiStar.py)**
   * **Meeting Date:** Monday, 9/11/2026 at 1:00 PM
   * **What Now (Completed & Reviewed):**
-    1. 
+    1. Sprint coordinator was sick, so review was not completed
     2. 
-    3. 
-
   * **What Next (Final Project Review):**
     1. Agreed to reconvene on Wednesday, 11/11/2026 at 1:00 PM to conduct a comprehensive review of all completed scripts, outputs, and documentation across the entire repository.
     2. Reviewed the preliminary README.md structure against assignment rubric requirements.
@@ -121,7 +119,8 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
   * **Meeting Date:** Wednesday, 11/11/2026 at 1:00 PM
   * **What Now (Completed & Reviewed):**
     1. Convened as a team to conduct a comprehensive review of all completed scripts (Q1_ExtensionDensity.py, Q2_GlobalMoran.py, and Q3_LISA_GiStar.py) and outputs across the repository.
-    2. Identified minor issues in the scripts during end to end testing and assigned follow up fixes to ensure clean execution.
+    2. Q3 script reviewed, showed good analysis of LISA and Getis Ord, and explanation for differences was sound. 
+    3. Identified minor issues in the scripts during end to end testing and assigned follow up fixes to ensure clean execution.
 
   * **What Next (Final Fixes & Submission):**
     1. Resolve the identified script issues and verify that the entire workflow runs cleanly from start to finish.
@@ -130,7 +129,7 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
 * **ITEM 6: Final Fixes, Verification & Submission**
     * **Meeting Date:** Friday, 13/11/2026
     * **What Now (Completed & Reviewed):**
-      1. Convened for the final team session to verify that all script issues identified on Wednesday were resolved..
+      1. Convened for the final team session to verify that all script issues identified on Wednesday were resolved.
       2. Finalized the README.md documentation, verified the repository folder structure (data/, scripts/, outputs/) and commit history across all team members, and pushed the final commits to Github.
 
   * **What Next (Brightspace Submission):**
