@@ -84,13 +84,14 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
   * **What Now (Review of Script:1):**
     1. Convened team session led by the sprint coordinator to review the completed Question 1 workflow (Q1_ExtensionDensity.py).
     2.  The creation of the github, folders and the download of data was done on 27/10/2026.
-    3. Executed a test run of the script, identified relative file path issues, and resolved them collaboratively so the script runs cleanly from a fresh copy.
+    3. Executed a test run of the script, identified relative file path issues
     4. Finalized and verified the Question 1 outputs (extensions.duckdb, DublinED_ExtensionDensity.gpkg, and ExtensionDensity_DublinED.png), which were committed to the repository.
 
   *  **What Next (Sprint 2 Plan:Global Spatial Autocorrelation):**
-    1. Transitioned to Sprint 2 (Q2_GlobalMoran.py), with work beginning on Friday.
-    2. Agreed to reconvene on Monday 2/11/2026 to review the completed Script 2 outputs and spatial autocorrelation results.
-    3. Rotate the coordinator for sprint 2
+  * 1. Resolve script issues and recommit to Github
+    2. Transitioned to Sprint 2 (Q2_GlobalMoran.py), with work beginning on Friday.
+    3. Agreed to reconvene on Monday 2/11/2026 to review the completed Script 2 outputs and spatial autocorrelation results.
+    4. Rotate the coordinator for sprint 2
 
 * **ITEM 3: Global Spatial Autocorrelation (Q2_GlobalMoran.py)**
   * **Meeting Date:** Monday, 02/11/2026 at 1:00 PM
