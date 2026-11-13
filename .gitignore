@@ -2,6 +2,7 @@
 # Workspace Data Folders
 # Ignore all the folders containing raw data and map outputs.
 data/
+outputs/extensions.duckdb
 
 # Python Temporary Files
 # Ignores system temporary files created when running python scripts.
