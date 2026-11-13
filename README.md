@@ -133,6 +133,9 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
   * **What Next (Brightspace Submission):**
     1. Generate and verify TeamRepositoryLink.txt containing the private repository URL and submit it on Brightspace.
 
+* **SPRINT 0: SET-UP**
+The team established a free GitHub organization named UCD-GEOG41160-2026-Team-5 with each member designated as an Owner and created a private repository named dublin-extensions-spatial-analysis. We configured the required directory structure (data/, scripts/, and outputs/), initialized README.md, and set up a .gitignore file to exclude large datasets. In sprint 0, the team set up fixed lead roles for each technical task;ExtensionDensity(Q1), GlobalMoran(Q2)and LISA_GiStar(Q3), alongside a rotating Coordinator role shared equally across all four sprints. Project development followed an incremental version control workflow, ensuring that every team member made transparent, individual code and documentation contributions using their own GitHub account
+
 * **SPRINT 1: Extension density by ED.**
 In Sprint 1, we set up a DuckDB spatial database (outputs/extensions.duckdb) to filter and process national planning data and Dublin Electoral Divisions, reprojecting layers into Irish Transverse Mercator (EPSG:2157). We then performed spatial joins via SQL to count applications per ED, calculated extension density (applications per_km2), exported the spatial results to DublinED_ExtensionDensity.gpkg, and generated the map visualization ExtensionDensity_DublinED.png
 
