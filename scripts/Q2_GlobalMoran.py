@@ -51,7 +51,7 @@ WHY THE LOG-TRANSFORMED DATA IS PREFERRED TO VISUALISE AND ANALYSE:
     gives a more honest visual picture of the spatial distribution of extension density across Dublin City.
 
 Conclusion:
-    The transformation did not the results of the Moran's I test, but it did improve the visualisation and 
+    The transformation did not change the results of the Moran's I test, but it did improve the visualisation and 
     interpretation of the spatial patterns in extension density across Dublin City.
     The raw and the log-transformed data give a p-value of 0.000. This meant that  both maps agree that planning extensions in Dublin
      are significantly clustered, not random. 
@@ -321,7 +321,7 @@ plt.show()
 """
 
 # Conclusion:
-""" The transformation did not the results of the Moran's I test, but it did improve the visualisation and 
+""" The transformation did not change the results of the Moran's I test, but it did improve the visualisation and 
     interpretation of the spatial patterns in extension density across Dublin City.
     The raw and the log-transformed data give a p-value of 0.000. This meant that  both maps agree that planning extensions in Dublin
      are significantly clustered, not random. 
