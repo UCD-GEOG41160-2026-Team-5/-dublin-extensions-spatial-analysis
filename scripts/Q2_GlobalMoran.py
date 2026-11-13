@@ -4,16 +4,14 @@ Team: 5
 
 ANSWERS
 Question 2:
-1. Distribution: skewness of the extension density is 1.38, so we used np.log1p transformation to handle zero values and right-skewness because 
-                 A log rescales numbers by how many times they multiply, each tenfold increase adds the same step (about 2.3), 
-                 which squeezes large values together and spreads small ones apart to ensure our spatial statistics remain valid
-
+1. Distribution: skewness of the extension density is 1.38, so we used np.log1p transformation to handle zero values and right-skewness. 
+                 A log transformation changes the distribution and scale of the variable, reducing the influence of extremely high values.
+                      
 2. Weights: QUEEN CONTIGUITY via libpysal.weights.Queen
             REASON: We used Queen contiguity because it defines neighbors as EDs that share either a border or a corner,
-                    which is appropriate for the irregular shapes of Dublin's EDs. This method captures more nuanced spatial relationships than 
-                    methods like rook contiguity,which are more restrictive and may overlook relevant neighboring interactions.
+                    which is appropriate for the irregular shapes of Dublin's EDs.
 
-3. Moran's I: Raw Data = 0.332 (p = 0.000); log1p 0.373 (p = 0.000), 9,999 permutations, seed 42. 
+3. Moran's I: Raw Data = 0.332 (p = 0.000: p<0.001); log1p 0.373 (p = 0.000: p<0.001), 9,999 permutations, seed 42. 
 
 Interpretation:
 RAW DATA MAP:
@@ -25,36 +23,34 @@ RAW DATA MAP:
 
 LOG-TRANSFORMED MAP:
     We noticed that the scale is much more balanced now. The log transformation tames those giant numbers so they don't dominate the map.
-    It spreads the green shades out fairly across the city. This allows you to clearly see the real patterns,
-    for example the dark green clusters of high activity and the lighter areas elsewhere.
+    It spreads the green shades out fairly across the city. This allows you to see the spatial variation more clearly, the transformation reduces the influence of extreme values, allowing differences between other areas to become more visible.
 
 THE STATISTICAL RESULTS:
-RAW DATA: Moran's I = 0.332  and p = 0.000: Indicates significant positive spatial autocorrelation.
-This statistical test proves that planning extensions in Dublin City are not random. Neighborhoods with high
+RAW DATA: Moran's I = 0.332  and p = 0.000(p < 0.001) Indicates significant positive spatial autocorrelation.
+    The positive Moran's I value indicates that planning extensions in Dublin City are not random. Neighborhoods with high
     extension density naturally group together next to other high-density areas.
-    The p-value 0.000 means we confirmed with over 99.99% confidence that this clustering pattern is statistically significant.
+    The reported p-value of 0.000 (rounded to three decimal places) indicates strong statistical evidence against the null hypothesis of spatial randomness (p < 0.001).
 
-LOG-TRANSFORMED DATA: Moran's I = 0.373 and p = 0.000: Indicates significant positive spatial autocorrelation.
-    After rescaling the  raw data with  a log transformation, the  Moran's I value increased to 0.373, 
-    which means the clustering of high-density areas is even more pronounced than before.
-    The p-value remains at 0.000, confirming that this pattern is statistically significant and not random. 
-    The log transformation has improved the analysis by reducing the influence of extreme values,
-    allowing us to see the true spatial relationships in extension density across Dublin City. 
+LOG-TRANSFORMED DATA: Moran's I = 0.373 and p = 0.000 (p < 0.001): Indicates significant positive spatial autocorrelation.
+    After rescaling the  raw data with  a log transformation, the  Moran's I value increased to 0.373, indicating  stronger spatial autocorrelation.
+    The p-value remains below 0.001, confirming that this pattern is statistically significant and not random. 
+    The log transformation reduced the influence of extreme valuesly high density values,
+    allowing us to see the true spatial relationships in extension density across Dublin City.
+    The overall conclusion remained the same: planning extension densities were spatially clustered, not randomly distributed. 
 
 PATTERN:
     We found that the pattern of clustering is consistent between the raw and log-transformed data,
-    but the log transformation provides a clearer and more clustered accurate representation of the spatial distribution of extension density
-    across Dublin City.
+    but the log transformation map makes it easier to see the differences in extension density across Dublin City, providing a
+    clearer visualization of the spatial distribution.
 
 WHY THE LOG-TRANSFORMED DATA IS PREFERRED TO VISUALISE AND ANALYSE:
-    We prefered the log-transformed data because it stops outliers from acting like bullies and 
-    gives a more honest visual picture of the spatial distribution of extension density across Dublin City.
+    We prefered the log-transformed data because it reduces the influence of extreme values, allowing differences between other areas to become more visible and 
+    improves the distribution of colours on the map, providing a more honest visual picture of the spatial distribution of extension density across Dublin City.
 
 Conclusion:
-    The transformation did not change the results of the Moran's I test, but it did improve the visualisation and 
-    interpretation of the spatial patterns in extension density across Dublin City.
-    The raw and the log-transformed data give a p-value of 0.000. This meant that  both maps agree that planning extensions in Dublin
-     are significantly clustered, not random. 
+    Both datasets show significant positive spatial autocorrelation, although the transformed dataset has a higher Moran's I.
+    The raw and the log-transformed data give a p-value of 0.000 (p < 0.001). This meant that  both maps agree that planning extensions in Dublin
+    are significantly clustered, not random.
 
 """
 ###################################################################################################################################
@@ -114,7 +110,7 @@ plt.show()
 
 # After plotting we noticed that the histogram was strongly skewed.
 """
-      This is because most of the EDs are packed city center areas and have a low extension count due to limited space 
+      This is because most of the EDs packed city center areas and have a low extension count due to limited space 
       unlike the outer suburban EDs  which have a high extension count accounting on the long right tall  hence  the need to transform it.
 """
 
@@ -149,9 +145,10 @@ plt.show()
 """ Because Moran’s I is built on deviations from the mean, extreme values can dominate it.
     The first step is to check the distribution using a histogram and skewness statistic. 
     If the planning extension density is strongly lopsided, a log transformation is applied.
-    A log rescales numbers by how many times they multiply: each tenfold increase adds the same step (about 2.3), 
-    which squeezes large values together and spreads small ones apart to ensure our spatial statistics remain valid. """
-
+    np.log1p transformation to handle zero values and right-skewness.
+    A log transformation changes the distribution and scale of the variable, reducing the influence of extremely high values.
+"""
+                      
 ######################################################################################################################
 ################## 2. SPATIAL WEIGHTS  ##############################################################################
 ########################################################################################################################
@@ -167,8 +164,6 @@ plt.show()
     NEIGHBOUR: QUEEN CONTIGUITY via libpysal.weights.Queen
     REASON: We used Queen contiguity because it defines neighbors as EDs that share either a border or a corner,
             which is appropriate for the irregular shapes of Dublin's EDs. 
-            This method captures more nuanced spatial relationships than simpler methods like rook contiguity,
-            which are more restrictive and may overlook relevant neighboring interactions.
 """
 
 # First thing was we had to import ibaraires needed for this question.
@@ -276,28 +271,24 @@ plt.show()
 """
 # LOG-TRANSFORMED MAP:
 """ We noticed that the scale is much more balanced now. The log transformation tames those giant numbers so they don't dominate the map.
-    It spreads the green shades out fairly across the city. This allows you to clearly see the real patterns,
-    for example the dark green clusters of high activity and the lighter areas elsewhere.
+    It spreads the green shades out fairly across the city. This allows you to see the spatial variation more clearly, the transformation reduces the influence of extreme values, allowing differences between other areas to become more visible.
 """
 
 # THE STATISTICAL RESULTS:
-# RAW DATA: Moran's I = 0.332  and p = 0.000: Indicates significant positive spatial autocorrelation.
-""" This statistical test proves that planning extensions in Dublin City are not random. Neighborhoods with high
+# RAW DATA: Moran's I = 0.332  and p = 0.000(p < 0.001) Indicates significant positive spatial autocorrelation.
+""" The positive Moran's I value indicates that planning extensions in Dublin City are not random. Neighborhoods with high
     extension density naturally group together next to other high-density areas.
-    The p-value 0.000 means we confirmed with over 99.99% confidence that this clustering pattern is statistically significant.
+    The reported p-value of 0.000 (rounded to three decimal places) indicates strong statistical evidence against the null hypothesis of spatial randomness (p < 0.001).
 """
 
-# LOG-TRANSFORMED DATA: Moran's I = 0.373 and p = 0.000: Indicates significant positive spatial autocorrelation.
-""" After rescaling the  raw data with  a log transformation, the  Moran's I value increased to 0.373, 
-    which means the clustering of high-density areas is even more pronounced than before.
-    The p-value remains at 0.000, confirming that this pattern is statistically significant and not random. 
-    The log transformation has improved the analysis by reducing the influence of extreme values,
-    allowing us to see the true spatial relationships in extension density across Dublin City. 
+# LOG-TRANSFORMED DATA: Moran's I = 0.373 and p = 0.000 (p < 0.001): Indicates significant positive spatial autocorrelation.
+""" After rescaling the  raw data with  a log transformation, the  Moran's I value increased to 0.373, indicating  stronger spatial autocorrelation.
+    The p-value remains below 0.001, confirming that this pattern is statistically significant and not random. 
+    The log transformation reduced the influence of extreme valuesly high density values,
+    allowing us to see the true spatial relationships in extension density across Dublin City.
+    The overall conclusion remained the same: planning extension densities were spatially clustered, not randomly distributed. 
 """
-
-
 # FINAL TRANSFORMED DATA MAP
-
 fig, ax = plt.subplots(figsize=(7, 6))
 eds.plot(column="log_density", cmap="YlGn", legend=True, edgecolor="grey", linewidth=0.3, ax=ax, legend_kwds={"label": "Transformed Density"})
 ax.set_title("Transformed Map of Extension Density, Dublin City")
@@ -312,17 +303,16 @@ plt.show()
     
 # PATTERN:
 """ We found that the pattern of clustering is consistent between the raw and log-transformed data,
-    but the log transformation provides a clearer and more clustered accurate representation of the spatial distribution of extension density
-   across Dublin City.
+    but the log transformation map makes it easier to see the differences in extension density across Dublin City, providing a
+    clearer visualization of the spatial distribution.
 """
 # WHY THE LOG-TRANSFORMED DATA IS PREFERRED TO VISUALISE AND ANALYSE:
-""" We prefered the log-transformed data because it stops outliers from acting like bullies and 
-    gives a more honest visual picture of the spatial distribution of extension density across Dublin City.
+""" We prefered the log-transformed data because it reduces the influence of extreme values, allowing differences between other areas to become more visible and 
+    improves the distribution of colours on the map, providing a more honest visual picture of the spatial distribution of extension density across Dublin City.
 """
 
 # Conclusion:
-""" The transformation did not change the results of the Moran's I test, but it did improve the visualisation and 
-    interpretation of the spatial patterns in extension density across Dublin City.
-    The raw and the log-transformed data give a p-value of 0.000. This meant that  both maps agree that planning extensions in Dublin
-     are significantly clustered, not random. 
+""" Both datasets show significant positive spatial autocorrelation, although the transformed dataset has a higher Moran's I.
+    The raw and the log-transformed data give a p-value of 0.000 (p < 0.001). This meant that  both maps agree that planning extensions in Dublin
+    are significantly clustered, not random. 
 """
