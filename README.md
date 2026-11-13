@@ -130,7 +130,8 @@ To reproduce the analysis from a fresh repository clone, the Python scripts were
     * **Meeting Date:** Friday, 13/11/2026
     * **What Now (Completed & Reviewed):**
       1. Convened for the final team session to verify that all script issues identified on Wednesday were resolved.
-      2. Finalized the README.md documentation, verified the repository folder structure (data/, scripts/, outputs/) and commit history across all team members, and pushed the final commits to Github.
+      2. Fixed minor typos is script 2
+      3. Finalized the README.md documentation, verified the repository folder structure (data/, scripts/, outputs/) and commit history across all team members, and pushed the final commits to Github.
 
   * **What Next (Brightspace Submission):**
     1. Generate and verify TeamRepositoryLink.txt containing the private repository URL and submit it on Brightspace.
